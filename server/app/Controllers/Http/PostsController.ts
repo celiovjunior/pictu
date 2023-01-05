@@ -48,4 +48,15 @@ export default class PostsController {
       data: post,
     }
   }
+
+  public async destroy({ params }: HttpContextContract) {
+    const post = await Post.findOrFail(params.id)
+
+    await post.delete()
+
+    return {
+      message: 'post deleted',
+      data: post,
+    }
+  }
 }
