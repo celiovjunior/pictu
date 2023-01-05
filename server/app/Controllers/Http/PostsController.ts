@@ -40,4 +40,12 @@ export default class PostsController {
       data: allPosts,
     }
   }
+
+  public async show({ params }: HttpContextContract) {
+    const post = await Post.findOrFail(params.id)
+
+    return {
+      data: post,
+    }
+  }
 }
