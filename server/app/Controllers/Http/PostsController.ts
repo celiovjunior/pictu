@@ -59,4 +59,33 @@ export default class PostsController {
       data: post,
     }
   }
+
+  public async update({ params, request }: HttpContextContract) {
+    const body = request.body()
+    const post = await Post.findOrFail(params.id)
+
+    post.title = body.title
+    post.description = body.description
+
+    if (post.image !== body.image || !post.image) {
+      const image = request.file('image', this.validationOptions)
+
+      if (image) {
+        const imageName = `${uuidv4()}.${image.extname}`
+
+        await image.move(Application.tmpPath('uploads'), {
+          name: imageName,
+        })
+
+        post.image = imageName
+      }
+    }
+
+    await post.save()
+
+    return {
+      message: 'post upgraded',
+      data: post,
+    }
+  }
 }
