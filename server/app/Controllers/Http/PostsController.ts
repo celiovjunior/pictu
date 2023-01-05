@@ -32,4 +32,12 @@ export default class PostsController {
       data: post,
     }
   }
+
+  public async index() {
+    const allPosts = await Post.all()
+
+    return {
+      data: allPosts,
+    }
+  }
 }
