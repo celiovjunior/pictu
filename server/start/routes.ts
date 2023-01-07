@@ -6,4 +6,6 @@ Route.group(() => {
   })
 
   Route.resource('/posts', 'PostsController').apiOnly()
+
+  Route.post('/posts/:postId/comments', 'CommentsController.store')
 }).prefix('/api')
