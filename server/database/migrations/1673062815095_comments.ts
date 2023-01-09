@@ -1,6 +1,6 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class extends BaseSchema {
+export default class Comments extends BaseSchema {
   protected tableName = 'comments'
 
   public async up() {
@@ -8,7 +8,6 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('username')
       table.string('text')
-
       table.integer('post_id').unsigned().references('posts.id').onDelete('CASCADE')
 
       /**
