@@ -8,6 +8,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewComponent } from './components/pages/new/new.component';
 import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
+import { PostFormComponent } from './components/post-form/post-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProfileDetailsComponent } from './components/profile-details/profile-de
     HomeComponent,
     AboutComponent,
     NewComponent,
-    ProfileDetailsComponent
+    ProfileDetailsComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
