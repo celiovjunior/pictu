@@ -34,7 +34,7 @@ export default class PostsController {
   }
 
   public async index() {
-    const allPosts = await Post.all()
+    const allPosts = await Post.query().preload('comments')
 
     return {
       data: allPosts,
@@ -43,6 +43,8 @@ export default class PostsController {
 
   public async show({ params }: HttpContextContract) {
     const post = await Post.findOrFail(params.id)
+
+    await post.load('comments')
 
     return {
       data: post,
