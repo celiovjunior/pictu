@@ -22,11 +22,9 @@ header {
 nav {
   margin-left: 200px;
   display: flex;
-  border: 2px solid var(--gray-400);
   padding: .75rem .25rem;
   border-radius: 8px;
-  background-color: var(--gray-600);
-  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.15)
+  background-color: var(--gray-550);
 }
 
 ul {
